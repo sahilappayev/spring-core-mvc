@@ -16,34 +16,35 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <spring.version>6.1.11</spring.version>
-        <hibernate.version>6.5.2.Final</hibernate.version>
+<!--        <hibernate.version>6.5.2.Final</hibernate.version>-->
+        <hibernate.version>5.2.18.Final</hibernate.version>
         <hibernate.common.annotation>6.0.0.Final</hibernate.common.annotation>
         <poi.version>3.10-FINAL</poi.version>
         <spring.security.version>6.3.1</spring.security.version>
     </properties>
 
 
-    <!--    <dependencyManagement>-->
-    <!--        <dependencies>-->
-    <!--            <dependency>-->
-    <!--                <groupId>org.olap4j</groupId>-->
-    <!--                <artifactId>olap4j</artifactId>-->
-    <!--                <version>1.2.0</version>-->
-    <!--                <exclusions>-->
-    <!--                    <exclusion>-->
-    <!--                        <groupId>xerces</groupId>-->
-    <!--                        <artifactId>xercesImpl</artifactId>-->
-    <!--                    </exclusion>-->
-    <!--                </exclusions>-->
-    <!--            </dependency>-->
+<!--        <dependencyManagement>-->
+<!--            <dependencies>-->
+<!--                <dependency>-->
+<!--                    <groupId>org.olap4j</groupId>-->
+<!--                    <artifactId>olap4j</artifactId>-->
+<!--                    <version>1.2.0</version>-->
+<!--                    <exclusions>-->
+<!--                        <exclusion>-->
+<!--                            <groupId>xerces</groupId>-->
+<!--                            <artifactId>xercesImpl</artifactId>-->
+<!--                        </exclusion>-->
+<!--                    </exclusions>-->
+<!--                </dependency>-->
 
-    <!--            <dependency>-->
-    <!--                <groupId>com.lowagie</groupId>-->
-    <!--                <artifactId>itext</artifactId>-->
-    <!--                <version>2.1.7</version>-->
-    <!--            </dependency>-->
-    <!--        </dependencies>-->
-    <!--    </dependencyManagement>-->
+<!--                <dependency>-->
+<!--                    <groupId>com.lowagie</groupId>-->
+<!--                    <artifactId>itext</artifactId>-->
+<!--                    <version>2.1.7</version>-->
+<!--                </dependency>-->
+<!--            </dependencies>-->
+<!--        </dependencyManagement>-->
 
 
     <dependencies>
@@ -59,10 +60,16 @@
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-orm</artifactId>-->
+<!--            <version>${spring.version}</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>${spring.version}</version>
+            <version>5.3.22</version>
         </dependency>
 
         <dependency>
@@ -126,7 +133,7 @@
         <!--        </dependency>-->
 
         <dependency>
-            <groupId>org.hibernate.orm</groupId>
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
@@ -144,64 +151,98 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
+
+        <!-- API, java.xml.bind module -->
+<!--        <dependency>-->
+<!--            <groupId>jakarta.xml.bind</groupId>-->
+<!--            <artifactId>jakarta.xml.bind-api</artifactId>-->
+<!--            <version>4.0.0</version>-->
+<!--        </dependency>-->
+
+
+        <!-- Runtime, com.sun.xml.bind module -->
+<!--        <dependency>-->
+<!--            <groupId>org.glassfish.jaxb</groupId>-->
+<!--            <artifactId>jaxb-runtime</artifactId>-->
+<!--            <version>4.0.0</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
 
     </dependencies>
 
-    <!--    <build>-->
-    <!--        <finalName>spring-core-demo</finalName>-->
-    <!--        <pluginManagement>-->
-    <!--            <plugins>-->
-    <!--                <plugin>-->
-    <!--                    <artifactId>maven-clean-plugin</artifactId>-->
-    <!--                    <version>3.4.0</version>-->
-    <!--                </plugin>-->
-    <!--                <plugin>-->
-    <!--                    <artifactId>maven-resources-plugin</artifactId>-->
-    <!--                    <version>3.3.1</version>-->
-    <!--                </plugin>-->
-    <!--                <plugin>-->
-    <!--                    <artifactId>maven-compiler-plugin</artifactId>-->
-    <!--                    <version>3.13.0</version>-->
+<!--        <build>-->
+<!--            <finalName>spring-core-demo</finalName>-->
+<!--            <pluginManagement>-->
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--                        <artifactId>maven-clean-plugin</artifactId>-->
+<!--                        <version>3.3.2</version>-->
+<!--                    </plugin>-->
+<!--                    <plugin>-->
+<!--                        <artifactId>maven-resources-plugin</artifactId>-->
+<!--                        <version>3.3.1</version>-->
+<!--                    </plugin>-->
+<!--                    <plugin>-->
+<!--                        <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                        <version>3.13.0</version>-->
 
-    <!--                </plugin>-->
-    <!--                <plugin>-->
-    <!--                    <artifactId>maven-surefire-plugin</artifactId>-->
-    <!--                    <version>3.3.1</version>-->
-    <!--                </plugin>-->
-    <!--                <plugin>-->
-    <!--                    <artifactId>maven-war-plugin</artifactId>-->
-    <!--                    <version>3.4.0</version>-->
-    <!--                </plugin>-->
-    <!--                <plugin>-->
-    <!--                    <artifactId>maven-install-plugin</artifactId>-->
-    <!--                    <version>3.1.2</version>-->
-    <!--                    <configuration>-->
-    <!--                        <source>${java.version}</source>-->
-    <!--                        <target>${java.version}</target>-->
-    <!--                        <release>21</release>-->
-    <!--                    </configuration>-->
-    <!--                </plugin>-->
-    <!--                <plugin>-->
-    <!--                    <artifactId>maven-deploy-plugin</artifactId>-->
-    <!--                    <version>3.1.2</version>-->
-    <!--                </plugin>-->
-    <!--            </plugins>-->
-    <!--        </pluginManagement>-->
-    <!--    </build>-->
+<!--                    </plugin>-->
+<!--                    <plugin>-->
+<!--                        <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                        <version>3.3.1</version>-->
+<!--                    </plugin>-->
+<!--                    <plugin>-->
+<!--                        <artifactId>maven-war-plugin</artifactId>-->
+<!--                        <version>3.4.0</version>-->
+<!--                    </plugin>-->
+<!--                    <plugin>-->
+<!--                        <artifactId>maven-install-plugin</artifactId>-->
+<!--                        <version>3.1.2</version>-->
+<!--&lt;!&ndash;                        <configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <source>${java.version}</source>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <target>${java.version}</target>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <release>21</release>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </configuration>&ndash;&gt;-->
+<!--                    </plugin>-->
+<!--                    <plugin>-->
+<!--                        <artifactId>maven-deploy-plugin</artifactId>-->
+<!--                        <version>3.1.2</version>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
+<!--            </pluginManagement>-->
+<!--        </build>-->
 
 
-    <!--    <repositories>-->
-    <!--        <repository>-->
-    <!--            <id>central</id>-->
-    <!--            <name>central</name>-->
-    <!--            <url>https://repo1.maven.org/maven2/</url>-->
-    <!--        </repository>-->
-    <!--        <repository>-->
-    <!--            <id>mulesoft</id>-->
-    <!--            <name>mulesoft</name>-->
-    <!--            <url>https://repository.mulesoft.org/releases/</url>-->
-    <!--        </repository>-->
-    <!--    </repositories>-->
+<!--        <repositories>-->
+<!--            <repository>-->
+<!--                <id>central</id>-->
+<!--                <name>central</name>-->
+<!--                <url>https://repo1.maven.org/maven2/</url>-->
+<!--            </repository>-->
+<!--            <repository>-->
+<!--                <id>mulesoft</id>-->
+<!--                <name>mulesoft</name>-->
+<!--                <url>https://repository.mulesoft.org/releases/</url>-->
+<!--            </repository>-->
+<!--        </repositories>-->
 
 
 </project>
